@@ -19,4 +19,4 @@ for row in table.findAll('tr')[1:]:
 outfile = open("./sewage.csv", "wb")
 writer = csv.writer(outfile)
 writer.writerow(["Index", "Start Date", "End Date", "Start/End Times", "Municipality", "Location", "Waterbody", "Description of Incident", "Estimated Volume (gallons)", "Wastewater Treatment Facility", "Contact Person"])
-writer.writerows(list_of_rows)
+list = writer.writerows(list_of_rows)
