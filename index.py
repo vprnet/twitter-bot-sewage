@@ -8,5 +8,9 @@ def new_tweet():
         for row in reader:
             all_incidents.append(row)
 
-        tweet = all_incidents[1][4] + ", " + all_incidents[1][5] + " - " + all_incidents[1][7] + " (" + all_incidents[1][8] + " gallons) "
+        if "gallons" not in all_incidents[1][8]:
+            tweet = all_incidents[1][4] + " - " + all_incidents[1][5] + " - " + all_incidents[1][7] + " (" + all_incidents[1][8] + " gallons) "
+        else:
+            tweet = all_incidents[1][4] + " - " + all_incidents[1][5] + " - " + all_incidents[1][7] + " (" + all_incidents[1][8] + ")"
+
         return tweet
