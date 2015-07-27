@@ -1,6 +1,4 @@
 import csv
-import requests
-from BeautifulSoup import BeautifulSoup
 
 url = 'https://anrweb.vt.gov/DEC/WWInventory/SewageOverflows.aspx'
 response = requests.get(url)

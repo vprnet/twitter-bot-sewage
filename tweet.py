@@ -1,6 +1,5 @@
-import tweepy
 from config import consumer_key, consumer_secret, access_token, access_token_secret
-from index import new_tweet    
+from index import new_tweet
 
 class TwitterAPI:
     def __init__(self):
