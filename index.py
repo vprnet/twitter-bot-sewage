@@ -9,10 +9,12 @@ def new_tweet():
         for row in reader:
             all_incidents.append(row)
 
+        tweet_foundation = all_incidents[-1][4] + " - " + all_incidents[-1][6] + " - " + "(" + all_incidents[-1][7]
+
         if "gallons" not in all_incidents[-1][7]:
-            tweet = all_incidents[-1][4] + " - " + all_incidents[-1][6] + " - " + "(" + all_incidents[-1][7] + " gallons estimated) "
+            tweet = tweet_foundation + " gallons estimated) "
         else:
-            tweet = all_incidents[-1][4] + " - " + all_incidents[-1][6] + " - " + "(" + all_incidents[-1][7] + " estimated)"
+            tweet = tweet_foundation + " estimated)"
 
         if tweet not in tweet_history:
 
