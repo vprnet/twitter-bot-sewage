@@ -1,10 +1,11 @@
+#!/usr/local/bin/python2.7
+
 import csv
 
 def new_tweet():
     with open('./sewage.csv', 'r') as f:
         reader = csv.reader(f)
         all_incidents = []
-        tweet_history = []
 
         for row in reader:
             all_incidents.append(row)
@@ -16,7 +17,4 @@ def new_tweet():
         else:
             tweet = tweet_foundation + " estimated)"
 
-        if tweet not in tweet_history:
-
-            tweet_history.append(tweet)
-            return tweet
+        return tweet
