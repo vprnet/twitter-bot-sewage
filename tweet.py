@@ -7,7 +7,6 @@ import logging
 
 twitter = Twython(consumer_key, consumer_secret, access_token, access_token_secret)
 
-
 with open('./past_tweets.log', 'r') as f:
     reader = f.readlines()
     past_tweets = []
@@ -15,22 +14,16 @@ with open('./past_tweets.log', 'r') as f:
     for row in reader:
         past_tweets.append(row)
 
-    test = past_tweets[-1]
+    new_tweet = new_tweet()
+    latest_spill = str(new_tweet)
 
+    print past_tweets
 
-    if "Vergennes" in past_tweets[-1]:
-        print "hey!"
+    if latest_spill in past_tweets[-1]:
+        print "this tweet has already been tweeted"
     else:
-        print "fail forever"
-
-
-
-
-
-
-
-
-
-# twitter.update_status(status=new_tweet())
-# logging.basicConfig(filename='past_tweets.log',level=logging.DEBUG)
-# logging.info(new_tweet())
+        print "tweet tweeted"
+        logging.basicConfig(filename='past_tweets.log' ,level=logging.INFO)
+        logging.info(latest_spill)
+        latest_spill = "test, sorry taylor"
+        # twitter.update_status(status=latest_spill)
