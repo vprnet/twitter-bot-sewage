@@ -14,16 +14,13 @@ with open('./past_tweets.log', 'r') as f:
     for row in reader:
         past_tweets.append(row)
 
-    new_tweet = new_tweet()
-    latest_spill = str(new_tweet)
+    scraped_tweet = new_tweet()
+    latest_spill = str(scraped_tweet)
 
-    print past_tweets
-
-    if latest_spill in past_tweets[-1]:
-        print "this tweet has already been tweeted"
+    if latest_spill in past_tweets[-1] or past_tweets[-2]:
+        print "Already been tweeted."
     else:
-        print "tweet tweeted"
-        logging.basicConfig(filename='past_tweets.log' ,level=logging.INFO)
+        logging.basicConfig(filename='past_tweets.log', level=logging.INFO)
         logging.info(latest_spill)
-        latest_spill = "test, sorry taylor"
-        # twitter.update_status(status=latest_spill)
+        twitter.update_status(status=latest_spill)
+        print "New tweet tweeted."
