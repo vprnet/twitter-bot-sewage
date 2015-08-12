@@ -17,7 +17,9 @@ with open('./past_tweets.log', 'r') as f:
     scraped_tweet = new_tweet()
     latest_spill = str(scraped_tweet)
 
-    if latest_spill in past_tweets[-1] or past_tweets[-2]:
+    duplicate = [s for s in past_tweets if latest_spill in s]
+
+    if duplicate:
         print "Already been tweeted."
     else:
         logging.basicConfig(filename='past_tweets.log', level=logging.INFO)
