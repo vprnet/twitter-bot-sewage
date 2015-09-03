@@ -1,6 +1,6 @@
 #VPR's Sewage Twitter Bot
 
-This bot scrapes Vermont's Water Waste Inventory site and tweets when there's a sewage overflow or incident reported. Follow along at [@dirtywatervt](http://twitter.com/dirtywatervt).
+This bot scrapes Vermont's Water Waste Inventory site and tweets when data on the page is updated. Follow along at [@dirtywatervt](http://twitter.com/dirtywatervt).
 
 #Get Involved
 
