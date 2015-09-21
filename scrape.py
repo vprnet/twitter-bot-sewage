@@ -10,10 +10,12 @@ html = response.content
 soup = BeautifulSoup(html)
 
 table1 = soup.find('table', attrs={'class': 'dataList', 'id': 'body_GridViewSewageOverflowsUnOfficial'})
-table2 = soup.find('table', attrs={'class': 'dataList', 'id': 'body_GridViewSewageOverflowsOther'})
+table2 = soup.find('table', attrs={'class': 'dataList', 'id': 'body_GridViewSewageOverflowsAuthorized'})
+table3 = soup.find('table', attrs={'class': 'dataList', 'id': 'body_GridViewSewageOverflowsOther'})
 
 list_of_rows1 = []
 list_of_rows2 = []
+list_of_rows3 = []
 final_list = []
 
 for row in table1.findAll('tr'):
@@ -30,7 +32,14 @@ for row in table2.findAll('tr'):
         list_of_cells.append(text)
     list_of_rows2.append(list_of_cells)
 
-final_list = list_of_rows1 + list_of_rows2
+for row in table3.findAll('tr'):
+    list_of_cells = []
+    for cell in row.findAll('td'):
+        text = cell.text.replace('&nbsp;', '')
+        list_of_cells.append(text)
+    list_of_rows3.append(list_of_cells)
+
+final_list = list_of_rows1 + list_of_rows2 + list_of_rows3
 
 while [] in final_list:
     final_list.remove([])
