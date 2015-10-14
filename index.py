@@ -10,11 +10,14 @@ def new_tweet():
         for row in reader:
             all_incidents.append(row)
 
-        tweet_foundation = all_incidents[-1][1] + ": " + all_incidents[-1][4] + ", " + all_incidents[-1][6] + " " + "(" + all_incidents[-1][8]
-
-        if "gallons" not in all_incidents[-1][8]:
-            tweet = tweet_foundation + " gallons estimated) "
+        if all_incidents[1] == ['No Records Found']:
+            tweet_text = False
         else:
-            tweet = tweet_foundation + " estimated)"
 
-        return tweet
+            new_tweets = []
+
+            for line in all_incidents:
+                tweet_text = line[1][:10] + ": " + line[5] + ", " + line[4] + " " + "(" + line[6] + " estimated)"
+                new_tweets.append(tweet_text)
+
+            return new_tweets

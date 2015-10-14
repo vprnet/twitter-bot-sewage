@@ -7,22 +7,26 @@ import logging
 
 twitter = Twython(consumer_key, consumer_secret, access_token, access_token_secret)
 
-with open('./past_tweets.log', 'r') as f:
-    reader = f.readlines()
-    past_tweets = []
+try:
+    with open('./past_tweets.log', 'r') as f:
+        reader = f.readlines()
+        past_tweets = []
 
-    for row in reader:
-        past_tweets.append(row)
+        for row in reader:
+            past_tweets.append(row)
 
-    scraped_tweet = new_tweet()
-    latest_spill = str(scraped_tweet)
+        scraped_tweets = new_tweet()
 
-    duplicate = [s for s in past_tweets if latest_spill in s]
+        for sewage_tweet in scraped_tweets[1:]:
 
-    if duplicate:
-        print "Already been tweeted."
-    else:
-        logging.basicConfig(filename='past_tweets.log', level=logging.INFO)
-        logging.info(latest_spill)
-        twitter.update_status(status=latest_spill)
-        print "New tweet tweeted."
+            duplicate = [s for s in past_tweets if sewage_tweet in s]
+
+            if duplicate:
+                print "Already been tweeted."
+            else:
+                logging.basicConfig(filename='past_tweets.log', level=logging.INFO)
+                logging.info(sewage_tweet)
+                twitter.update_status(status=latest_spill)
+                print "New tweet tweeted."
+except TypeError:
+    print "No new sewage spills reported."

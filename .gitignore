@@ -1,3 +1,4 @@
 config.py
 sewage.csv
+past_tweets.log
 *pyc
