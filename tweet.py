@@ -26,7 +26,7 @@ try:
             else:
                 logging.basicConfig(filename='past_tweets.log', level=logging.INFO)
                 logging.info(sewage_tweet)
-                twitter.update_status(status=latest_spill)
+                twitter.update_status(status=sewage_tweet)
                 print "New tweet tweeted."
 except TypeError:
     print "No new sewage spills reported."

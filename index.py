@@ -17,7 +17,7 @@ def new_tweet():
             new_tweets = []
 
             for line in all_incidents:
-                tweet_text = line[1][:10] + ": " + line[5] + ", " + line[4] + " " + "(" + line[6] + " estimated)"
+                tweet_text = line[1][:10] + ": " + line[9] + ", " + line[5] + ", " + line[3] + " " + "(" + line[8] + " estimated)"
                 new_tweets.append(tweet_text)
 
             return new_tweets
