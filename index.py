@@ -6,18 +6,16 @@ def new_tweet():
     with open('./sewage.csv', 'r') as f:
         reader = csv.reader(f)
         all_incidents = []
+        new_tweets = []
 
         for row in reader:
             all_incidents.append(row)
 
-        if all_incidents[1] == ['No Records Found']:
-            tweet_text = False
-        else:
-
-            new_tweets = []
-
-            for line in all_incidents:
+        for line in all_incidents:
+            try:
                 tweet_text = line[1][:10] + ": " + line[9] + ", " + line[5] + ", " + line[3] + " " + "(" + line[8] + " estimated)"
                 new_tweets.append(tweet_text)
+            except IndexError:
+                tweet_text = False
 
-            return new_tweets
+        return new_tweets
